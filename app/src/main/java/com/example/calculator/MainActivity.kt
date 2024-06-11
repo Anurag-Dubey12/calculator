@@ -11,69 +11,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var textresult:TextView=findViewById(R.id.tv_result)
-        var zero=findViewById<Button?>(R.id.btn_0).setOnClickListener {
-            textresult.append("0")
-        }
-        var one=findViewById<Button?>(R.id.btn_1).setOnClickListener {
-            textresult.append("1")
 
-        }
-        var two=findViewById<Button>(R.id.btn_2).setOnClickListener {
-            textresult.append("2")
+        val textResult: TextView = findViewById(R.id.tv_result)
 
-        }
-        var three=findViewById<Button>(R.id.btn_3).setOnClickListener {
-            textresult.append("3")
+        val buttonIds = listOf(
+            R.id.btn_0 to "0", R.id.btn_1 to "1", R.id.btn_2 to "2", R.id.btn_3 to "3",
+            R.id.btn_4 to "4", R.id.btn_5 to "5", R.id.btn_6 to "6", R.id.btn_7 to "7",
+            R.id.btn_8 to "8", R.id.btn_9 to "9", R.id.btn_add to "+", R.id.btn_subtract to "-",
+            R.id.btn_multiply to "*", R.id.btn_divide to "/", R.id.btn_decimal to ".",
+            R.id.btn_negative to "-",
+            R.id.btn_sin to "sin(", R.id.btn_cos to "cos(", R.id.btn_tan to "tan(",
+            R.id.btn_log to "log(", R.id.btn_ln to "ln(", R.id.btn_pi to "3.14159265",
+            R.id.btn_sqrt to "sqrt(", R.id.btn_square to "^2",
+            R.id.btn_open to "(", R.id.btn_close to ")"
+        )
 
-        }
-        var four=findViewById<Button>(R.id.btn_4).setOnClickListener {
-            textresult.append("4")
-        }
-
-        var five=findViewById<Button>(R.id.btn_5).setOnClickListener{
-            textresult.append("5")}
-        var six=findViewById<Button>(R.id.btn_6).setOnClickListener{
-            textresult.append("6")
-        }
-        var seven=findViewById<Button>(R.id.btn_7).setOnClickListener{
-            textresult.append("7")
-        }
-        var eight=findViewById<Button>(R.id.btn_8).setOnClickListener{
-            textresult.append("8")
-        }
-        var nine=findViewById<Button>(R.id.btn_9).setOnClickListener{
-            textresult.append("9")
-        }
-        var plus=findViewById<Button>(R.id.btn_add).setOnClickListener{
-            textresult.append("+")
-        }
-        var minus=findViewById<Button>(R.id.btn_subtract).setOnClickListener{
-            textresult.append("-")
-        }
-        var div=findViewById<Button>(R.id.btn_divide).setOnClickListener{
-            textresult.append("/")
-        }
-        var clear=findViewById<Button>(R.id.btn_clear).setOnClickListener{
-            textresult.text=" "
-        }
-        var point=findViewById<Button>(R.id.btn_decimal).setOnClickListener{
-            textresult.append(".")
-        }
-        var multiply=findViewById<Button>(R.id.btn_multiply).setOnClickListener{
-            textresult.append("*")
-        }
-        var negative=findViewById<Button>(R.id.btn_negative).setOnClickListener{
-            textresult.append("-")
-        }
-        var equal=findViewById<Button>(R.id.btn_equals).setOnClickListener{
-       val expression= ExpressionBuilder(textresult.text.toString()).build()
-            try {
-                val result= expression.evaluate()
-                textresult.text=result.toString()
+        for ((id, value) in buttonIds) {
+            findViewById<Button>(id).setOnClickListener {
+                textResult.append(value)
             }
-            catch (e:java.lang.ArithmeticException){
-                textresult.text="Error "
+        }
+
+        findViewById<Button>(R.id.btn_clear).setOnClickListener {
+            textResult.text = ""
+        }
+
+        findViewById<Button>(R.id.btn_equals).setOnClickListener {
+            val expression = ExpressionBuilder(textResult.text.toString()).build()
+            try {
+                val result = expression.evaluate()
+                textResult.text = result.toString()
+            } catch (e: Exception) {
+                textResult.text = "Error"
             }
         }
     }

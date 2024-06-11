@@ -23,19 +23,68 @@
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
-        android:padding="16dp"
+        android:background="@drawable/border"
+        android:gravity="center_horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:textColor="@android:color/black"
         android:textSize="32sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="4"
+        android:columnCount="5"
         android:padding="16dp"
-        android:rowCount="5">
+        android:rowCount="6">
 
+      <!-- First row -->
+      <Button
+          android:id="@+id/btn_sin"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="sin" />
+
+      <Button
+          android:id="@+id/btn_cos"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="cos" />
+
+      <Button
+          android:id="@+id/btn_tan"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="tan" />
+
+      <Button
+          android:id="@+id/btn_log"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="log" />
+
+      <Button
+          android:id="@+id/btn_ln"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="ln" />
+
+      <!-- Second row -->
       <Button
           android:id="@+id/btn_clear"
           android:layout_width="0dp"
@@ -59,7 +108,20 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:text="*" />
-
+      <Button
+          android:id="@+id/btn_open"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="(" />
+      <Button
+          android:id="@+id/btn_close"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text=")" />
       <Button
           android:id="@+id/btn_subtract"
           android:layout_width="0dp"
@@ -68,6 +130,15 @@
           android:layout_columnWeight="1"
           android:text="-" />
 
+      <Button
+          android:id="@+id/btn_add"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="+" />
+
+      <!-- Third row -->
       <Button
           android:id="@+id/btn_7"
           android:layout_width="0dp"
@@ -93,13 +164,22 @@
           android:text="9" />
 
       <Button
-          android:id="@+id/btn_add"
+          android:id="@+id/btn_equals"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
-          android:text="+" />
+          android:text="=" />
 
+      <Button
+          android:id="@+id/btn_square"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="x²" />
+
+      <!-- Fourth row -->
       <Button
           android:id="@+id/btn_4"
           android:layout_width="0dp"
@@ -125,13 +205,22 @@
           android:text="6" />
 
       <Button
-          android:id="@+id/btn_equals"
+          android:id="@+id/btn_pi"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
-          android:text="=" />
+          android:text="π" />
 
+      <Button
+          android:id="@+id/btn_sqrt"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="√" />
+
+      <!-- Fifth row -->
       <Button
           android:id="@+id/btn_1"
           android:layout_width="0dp"
@@ -165,6 +254,15 @@
           android:text="." />
 
       <Button
+          android:id="@+id/btn_negative"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_rowWeight="1"
+          android:layout_columnWeight="1"
+          android:text="+/-" />
+
+      <!-- Sixth row -->
+      <Button
           android:id="@+id/btn_0"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
@@ -172,16 +270,7 @@
           android:layout_columnWeight="2"
           android:text="0" />
 
-      <Button
-          android:id="@+id/btn_negative"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_rowWeight="1"
-          android:layout_columnWeight="1"
-          android:text="-" />
-
     </GridLayout>
-
 
   </LinearLayout>
 
